@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pororo.tasks.word_embedding &mdash; PORORO: Platform Of neuRal mOdels for natuRal language prOcessing 0.3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> PORORO: Platform Of neuRal mOdels for natuRal language prOcessing
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/intro.html">Installation and Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes/config.html">Configuration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Classification</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/aes.html">Automated Essay Scoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/age_suitability.html">Age Suitability Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/nli.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/para_id.html">Paraphrase Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/review_score.html">Review Scoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/sts.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/sent2vec.html">Sentence Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/sentiment.html">Sentiment Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text_cls/zero.html">Zero-shot Topic Classification</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Sequence Tagging</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/contextualized.html">Contextualized Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/dp.html">Dependency Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/fill.html">Fill-in-the-blank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/mrc.html">Machine Reading Comprehension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/ner.html">Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/pos.html">Part-of-Speech Tagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tagging/srl.html">Semantic Role Labeling</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Seq2Seq</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/const.html">Constituency Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/gec.html">Grammatical Error Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/g2p.html">Grapheme-to-Phoneme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/p2g.html">Phoneme-to-Grapheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/mt.html">Machine Translation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/para_gen.html">Paraphrase Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/qg.html">Question Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/summary.html">Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../seq2seq/wsd.html">Word Sense Disambiguation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Misc.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/asr.html">Automatic Speech Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/caption.html">Image Captioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/collocation.html">Collocation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/lemma.html">Lemmatization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/inflection.html">Morphological Inflection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/ocr.html">Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/tts.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/tokenization.html">Tokenization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/wt.html">Word Translation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../miscs/w2v.html">Word Embedding</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PORORO: Platform Of neuRal mOdels for natuRal language prOcessing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pororo.tasks.word_embedding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pororo.tasks.word_embedding</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Word Embedding related modeling class&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">whoosh.qparser</span> <span class="kn">import</span> <span class="n">QueryParser</span>
+
+<span class="kn">from</span> <span class="nn">pororo.tasks.utils.base</span> <span class="kn">import</span> <span class="n">PororoFactoryBase</span><span class="p">,</span> <span class="n">PororoSimpleBase</span>
+<span class="kn">from</span> <span class="nn">pororo.tasks.utils.download_utils</span> <span class="kn">import</span> <span class="n">download_or_load</span>
+
+
+<div class="viewcode-block" id="PororoWordFactory"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWordFactory">[docs]</a><span class="k">class</span> <span class="nc">PororoWordFactory</span><span class="p">(</span><span class="n">PororoFactoryBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get vector or find similar word and entity from pretrained model using wikipedia</span>
+
+<span class="sd">    See also:</span>
+<span class="sd">        Wikipedia2Vec: An Efficient Toolkit for Learning and Visualizing the Embeddings of Words and Entities from Wikipedia (https://arxiv.org/abs/1812.06280)</span>
+
+<span class="sd">    English (`wikipedia2vec.en`)</span>
+
+<span class="sd">        - dataset: enwiki-20180420</span>
+<span class="sd">        - metric: N/A</span>
+
+<span class="sd">    Korean (`wikipedia2vec.ko`)</span>
+
+<span class="sd">        - dataset: kowiki-20200720</span>
+<span class="sd">        - metric: N/A</span>
+
+<span class="sd">    Japanese (`wikipedia2vec.ja`)</span>
+
+<span class="sd">        - dataset: jawiki-20180420</span>
+<span class="sd">        - metric: N/A</span>
+
+<span class="sd">    Chinese (`wikipedia2vec.zh`)</span>
+
+<span class="sd">        - dataset: zhwiki-20180420</span>
+<span class="sd">        - metric: N/A</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        query (str): input qeury</span>
+<span class="sd">        top_n (int): number of result word or entity (need for `find_similar_words`)</span>
+<span class="sd">        group (bool): return grouped dictionary or not (need for `find_similar_words`)</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        PororoWikipedia2Vec has two diffrent kinds of output format following below.</span>
+<span class="sd">        1. &#39;something&#39; (word) : word2vec result (non-hyperlink in wikipedia documents)</span>
+<span class="sd">        2. &#39;something&#39; (other) : entity2vec result (hyperlink in wikipedia documents)</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; word2vec = Pororo(&quot;word2vec&quot;, lang=&quot;ko&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; word2vec(&quot;사과&quot;)  # vector search</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;사과 (word)&#39;,</span>
+<span class="sd">                tensor([-0.2660, -0.2157, -0.3058, -0.5231, ..., 0.0905, -0.0078,  0.6168,  0.6907], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;사과 (pome;fruit of Maloideae;fruit)&#39;,</span>
+<span class="sd">                tensor([ 0.6187, -0.9504, -1.5744,  0.1751, ..., 0.0470,  0.4685,  0.7006, -0.3036], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;사향사과 (religious concept)&#39;,</span>
+<span class="sd">                tensor([-0.0748, -0.5694, -1.3145, -1.8251, ..., -0.0657,  0.9534,  0.1697, -0.8623], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;사과 (교육) (liberal arts education)&#39;,</span>
+<span class="sd">                tensor([-3.6215e-02, -1.0046e-01, -5.8013e-01, -3.4734e-01, ..., -1.1415e-01,  6.7168e-02,  8.6065e-01, -7.3844e-01], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;사과 (영화) (film)&#39;,</span>
+<span class="sd">                tensor([-0.2731, -0.2932, -0.2658, -0.0709, ..., 0.0279,  0.4272, -0.0810, -0.1934], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;사과 (행위) (intentional human action)&#39;,</span>
+<span class="sd">                tensor([-0.2321, -0.4228, -0.2982, -0.6823, ..., -0.3684,  0.4122,  0.7825, -0.2925], device=&#39;cuda:0&#39;))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;카카오&quot;)  # word or entity search</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;카카오 (word)&#39;, [&#39;몰랑이 (television series)&#39;, &#39;NHN벅스 (business)&#39;, &#39;나뚜루 ()&#39;, &#39;쿠키런: 오븐브레이크 (video game;mobile game)&#39;, &#39;네이버 오디오 클립 ()&#39;]),</span>
+<span class="sd">            (&#39;카카오 (taxon)&#39;, [&#39;커피나무 (taxon)&#39;, &#39;코코아콩 (seed;intermediate good)&#39;, &#39;커피콩 (seed;product)&#39;, &#39;카카오 매스 (food ingredient;food;intermediate good)&#39;, &#39;콜라나무속 (taxon)&#39;]),</span>
+<span class="sd">            (&#39;카카오 (2006~2014년 기업) (business)&#39;, [&#39;줌 (포털 사이트) (website)&#39;, &#39;넷츠고 ()&#39;, &#39;줌인터넷 ()&#39;, &#39;SK커뮤니케이션즈 (1999~2007년 기업) ()&#39;, &#39;드림위즈 (website)&#39;]),</span>
+<span class="sd">            (&#39;카카오 (기업) (enterprise;business)&#39;, [&#39;분류:카카오 (Wikimedia category)&#39;, &#39;카카오 (2006~2014년 기업) (business)&#39;, &#39;줌인터넷 ()&#39;, &#39;줌 (포털 사이트) (website)&#39;, &#39;네이버 (기업) (enterprise;business)&#39;])</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;카카오&quot;, group=True)  # word or entity search using grouping</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;카카오 (word)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;television series&#39;, [&#39;몰랑이&#39;]), (&#39;business&#39;, [&#39;NHN벅스&#39;]), (&#39;&#39;, [&#39;나뚜루&#39;, &#39;네이버 오디오클립&#39;]), (&#39;video game&#39;, [&#39;쿠키런: 오븐브레이크&#39;]), (&#39;mobile game&#39;, [&#39;쿠키런: 오븐브레이크&#39;])])),</span>
+<span class="sd">            (&#39;카카오 (taxon)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;taxon&#39;, [&#39;커피나무&#39;, &#39;콜라나무속&#39;]), (&#39;seed&#39;, [&#39;코코아콩&#39;, &#39;커피콩&#39;]), (&#39;intermediate good&#39;, [&#39;코코아콩&#39;, &#39;카카오 매스&#39;]), (&#39;product&#39;, [&#39;커피콩&#39;]), (&#39;food ingredient&#39;, [&#39;카카오 매스&#39;]), (&#39;food&#39;, [&#39;카카오 매스&#39;])])),</span>
+<span class="sd">            (&#39;카카오 (2006~2014년 기업) (business)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;website&#39;, [&#39;줌 (포털 사이트)&#39;, &#39;드림위즈&#39;]), (&#39;&#39;, [&#39;넷츠고&#39;, &#39;줌인터넷&#39;, &#39;SK커뮤니케이션즈 (1999~2007년 기업)&#39;])])),</span>
+<span class="sd">            (&#39;카카오 (기업) (enterprise;business)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;Wikimedia category&#39;, [&#39;분류:카카오&#39;]), (&#39;business&#39;, [&#39;카카오 (2006~2014년 기업)&#39;, &#39;네이버 (기업)&#39;]), (&#39;&#39;, [&#39;줌인터넷&#39;]), (&#39;website&#39;, [&#39;줌 (포털 사이트)&#39;]), (&#39;enterprise&#39;, [&#39;네이버 (기업)&#39;])]))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec = Pororo(&quot;word2vec&quot;, lang=&quot;en&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; word2vec(&quot;apple&quot;)  # vector search</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;apple (word)&#39;,</span>
+<span class="sd">                tensor([-1.8115e-01,  1.1258e+00, -3.3197e-01,  1.6572e-01,  ..., -6.4689e-01,  6.3094e-02, -8.8036e-02, -2.1675e-01], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple (fruit;pome;fruit of Maloideae)&#39;,</span>
+<span class="sd">                tensor([-3.2076e-02,  1.5557e+00,  7.0766e-01, -7.8812e-01, ..., -4.7607e-02,  3.4023e-01,  5.3378e-01, -2.7254e-01], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Muggsy Bogues (human)&#39;,</span>
+<span class="sd">                tensor([-1.0721,  0.9283,  1.2894,  0.4695, ..., 0.1366,  0.5774,  0.0939,  0.9778], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Ariane Passenger Payload Experiment (communications satellite)&#39;,</span>
+<span class="sd">                tensor([ 7.5558e-02, -6.4360e-01,  2.9888e-01,  1.8166e-02,  ..., -7.9919e-01,  2.8561e-01, -4.6676e-01,  2.1841e-01], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple Inc. (business;enterprise;NASDAQ-100;giants of the web;Dow Jones Industrial Average)&#39;,</span>
+<span class="sd">                tensor([-0.6466,  1.1077, -0.5390,  0.5268, ..., 0.0375,  0.3269,  1.4260, -0.0849], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple Records (record label)&#39;,</span>
+<span class="sd">                tensor([-0.2443,  1.3124,  0.4259,  0.8220,  ..., -0.0310,  0.6967, -1.7474,  0.4733], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple (album) (studio album)&#39;,</span>
+<span class="sd">                tensor([ 0.9694,  0.7516,  0.9456, -0.2018, ..., -0.0952, -0.3208, -1.1855,  0.1000], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple (automobile) (motor car)&#39;,</span>
+<span class="sd">                tensor([ 0.0273, -0.0827,  0.3302,  0.0199, ..., 0.1942,  0.2985, -0.6952, -0.2728], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;Apple River (Illinois) (river)&#39;,</span>
+<span class="sd">                tensor([-0.2683,  1.0154,  0.3947, -0.4488,  ..., 0.3037,  0.0535, -0.4189,  1.3587], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;The Apple (Star Trek: The Original Series) (Star Trek episode;television series episode)&#39;,</span>
+<span class="sd">                tensor([ 2.9253e-01,  6.0142e-01,  5.8198e-01,  1.5138e-01, ..., -4.2186e-01,  9.4759e-01, -6.0089e-02,  1.0352e+00], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;The Apple (1980 film) (film)&#39;,</span>
+<span class="sd">                tensor([ 1.0943,  0.3313,  1.5675, -1.4343,  ..., -0.2276,  0.5506, -1.5071,  1.0106], device=&#39;cuda:0&#39;))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;apple&quot;)</span>
+<span class="sd">            OrderedDict([</span>
+<span class="sd">                (&#39;apple (word)&#39;, [&#39;blackberry (word)&#39;, &#39;silentype (word)&#39;, &#39;Apple Inc. (business;enterprise;NASDAQ-100;giants of the web;Dow Jones Industrial Average)&#39;, &#39;paulared (word)&#39;, &#39;trueimage (word)&#39;]),</span>
+<span class="sd">                (&#39;Apple (fruit;pome;fruit of Maloideae)&#39;, [&#39;Pear (taxon)&#39;, &#39;Apricot (fruit)&#39;, &#39;Plum (taxon)&#39;, &#39;Peach (taxon)&#39;, &#39;Cherry (fruit;drupe)&#39;]),</span>
+<span class="sd">                (&#39;Muggsy Bogues (human)&#39;, [&#39;Tom Gugliotta (human)&#39;, &#39;Billy Owens (human)&#39;, &#39;David Wingate (basketball) (human)&#39;, &#39;1995–96 Cleveland Cavaliers season (basketball team season)&#39;, &#39;:1989–90 Denver Nuggets season (misc)&#39;]),</span>
+<span class="sd">                (&#39;Ariane Passenger Payload Experiment (communications satellite)&#39;, [&#39;INSAT-3E (communications satellite)&#39;, &#39;INSAT-3B (communications satellite)&#39;, &#39;INSAT-4E (communications satellite)&#39;, &#39;Rohini (satellite) (artificial satellite)&#39;, &#39;Bhaskara (satellite) (Earth observation satellite)&#39;]),</span>
+<span class="sd">                (&#39;Apple Inc. (business;enterprise;NASDAQ-100;giants of the web;Dow Jones Industrial Average)&#39;, [&#39;Steve Jobs (human)&#39;, &#39;IPhone (model series;smartphone)&#39;, &#39;apple (word)&#39;, &#39;IPad (model series;tablet computer)&#39;, &#39;IOS 7 (mobile operating system;iOS;version, edition, or translation)&#39;]),</span>
+<span class="sd">                (&#39;Apple Records (record label)&#39;, [&#39;Apple Corps (business;enterprise)&#39;, &#39;Come and Get It: The Best of Apple Records (compilation album;Apple Records Box Set)&#39;, &#39;beatles (word)&#39;, &#39;Maybe Tomorrow (The Iveys album) (album)&#39;, &#39;Maybe Tomorrow (The Iveys song) (Maybe Tomorrow;single)&#39;]),</span>
+<span class="sd">                (&#39;Apple (album) (studio album)&#39;, [&#39;Shine (Mother Love Bone EP) (extended play)&#39;, &#39;Mother Love Bone (musical group)&#39;, &#39;The Rockfords (album) (album)&#39;, &#39;Temple of the Dog (album) (album)&#39;, &#39;Chloe Dancer/Crown of Thorns (Shine;song;single)&#39;]),</span>
+<span class="sd">                (&#39;Apple (automobile) (motor car)&#39;, [&#39;Dayton Electric (automobile manufacturer)&#39;, &#39;Courier Car Co (automobile manufacturer)&#39;, &#39;Binghamton Electric (automobile manufacturer)&#39;, &#39;Century (automobile) (automobile manufacturer)&#39;, &#39;Babcock Electric Carriage Company (business)&#39;]),</span>
+<span class="sd">                (&#39;Apple River (Illinois) (river)&#39;, [&#39;Little Menominee River (stream;river)&#39;, &#39;Plum River (river)&#39;, &#39;Nl:Lijst van rivieren in Illinois (misc)&#39;, &quot;Fr:Liste des fleuves de l&#39;Illinois (misc)&quot;, &#39;Sinsinawa River (river)&#39;]),</span>
+<span class="sd">                (&#39;The Apple (Star Trek: The Original Series) (Star Trek episode;television series episode)&#39;, [&quot;Mudd&#39;s Women (television film;Star Trek episode;television series episode)&quot;, &#39;That Which Survives (Star Trek episode;television series episode)&#39;, &#39;Return to Tomorrow (Star Trek episode;television series episode)&#39;, &#39;The Deadly Years (Star Trek episode;television series episode)&#39;, &#39;By Any Other Name (Star Trek episode;television series episode)&#39;]),</span>
+<span class="sd">                (&#39;The Apple (1980 film) (film)&#39;, [&#39;EST and The Forum in popular culture (cultural depiction)&#39;, &quot;The Devil&#39;s Rain (Wikimedia disambiguation page)&quot;, &#39;Jesus Christ Superstar (film) (film)&#39;, &#39;Shock Treatment (film)&#39;, &#39;Xanadu (film) (film)&#39;])</span>
+<span class="sd">            ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;apple&quot;, top_n=3, group=True)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;apple (word)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;word&#39;, [&#39;blackberry&#39;, &#39;silentype&#39;]), (&#39;business&#39;, [&#39;Apple Inc.&#39;]), (&#39;enterprise&#39;, [&#39;Apple Inc.&#39;]), (&#39;NASDAQ-100&#39;, [&#39;Apple Inc.&#39;]), (&#39;giants of the web&#39;, [&#39;Apple Inc.&#39;]), (&#39;Dow Jones Industrial Average&#39;, [&#39;Apple Inc.&#39;])])),</span>
+<span class="sd">            (&#39;Apple (fruit;pome;fruit of Maloideae)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;taxon&#39;, [&#39;Pear&#39;, &#39;Plum&#39;]), (&#39;fruit&#39;, [&#39;Apricot&#39;])])),</span>
+<span class="sd">            (&#39;Muggsy Bogues (human)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;human&#39;, [&#39;Tom Gugliotta&#39;, &#39;Billy Owens&#39;, &#39;David Wingate (basketball)&#39;])])),</span>
+<span class="sd">            (&#39;Ariane Passenger Payload Experiment (communications satellite)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;communications satellite&#39;, [&#39;INSAT-3E&#39;, &#39;INSAT-3B&#39;, &#39;INSAT-4E&#39;])])),</span>
+<span class="sd">            (&#39;Apple Inc. (business;enterprise;NASDAQ-100;giants of the web;Dow Jones Industrial Average)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;human&#39;, [&#39;Steve Jobs&#39;]), (&#39;model series&#39;, [&#39;IPhone&#39;]), (&#39;smartphone&#39;, [&#39;IPhone&#39;]), (&#39;word&#39;, [&#39;apple&#39;])])),</span>
+<span class="sd">            (&#39;Apple Records (record label)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;business&#39;, [&#39;Apple Corps&#39;]), (&#39;enterprise&#39;, [&#39;Apple Corps&#39;]), (&#39;compilation album&#39;, [&#39;Come and Get It: The Best of Apple Records&#39;]), (&#39;Apple Records Box Set&#39;, [&#39;Come and Get It: The Best of Apple Records&#39;]), (&#39;word&#39;, [&#39;beatles&#39;])])),</span>
+<span class="sd">            (&#39;Apple (album) (studio album)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;extended play&#39;, [&#39;Shine (Mother Love Bone EP)&#39;]), (&#39;musical group&#39;, [&#39;Mother Love Bone&#39;]), (&#39;album&#39;, [&#39;The Rockfords (album)&#39;])])),</span>
+<span class="sd">            (&#39;Apple (automobile) (motor car)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;automobile manufacturer&#39;, [&#39;Dayton Electric&#39;, &#39;Courier Car Co&#39;, &#39;Binghamton Electric&#39;])])),</span>
+<span class="sd">            (&#39;Apple River (Illinois) (river)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;stream&#39;, [&#39;Little Menominee River&#39;]), (&#39;river&#39;, [&#39;Little Menominee River&#39;, &#39;Plum River&#39;]), (&#39;misc&#39;, [&#39;Nl:Lijst van rivieren in Illinois&#39;])])),</span>
+<span class="sd">            (&#39;The Apple (Star Trek: The Original Series) (Star Trek episode;television series episode)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;television film&#39;, [&quot;Mudd&#39;s Women&quot;]), (&#39;Star Trek episode&#39;, [&quot;Mudd&#39;s Women&quot;, &#39;That Which Survives&#39;, &#39;Return to Tomorrow&#39;]), (&#39;television series episode&#39;, [&quot;Mudd&#39;s Women&quot;, &#39;That Which Survives&#39;, &#39;Return to Tomorrow&#39;])])),</span>
+<span class="sd">            (&#39;The Apple (1980 film) (film)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;cultural depiction&#39;, [&#39;EST and The Forum in popular culture&#39;]), (&#39;Wikimedia disambiguation page&#39;, [&quot;The Devil&#39;s Rain&quot;]), (&#39;film&#39;, [&#39;Jesus Christ Superstar (film)&#39;])]))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec = Pororo(&quot;word2vec&quot;, lang=&quot;ja&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; word2vec(&quot;リンゴ&quot;)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;リンゴ (word)&#39;, tensor([ 0.1310, -0.1558,  0.8368,  0.3689,  ..., 0.0253, -0.0910,  0.1332,  0.0920], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;リンゴ (fruit;fruit of Maloideae;pome)&#39;, tensor([ 0.4617, -0.3032,  1.5106,  0.7717,  ..., -0.2006,  0.2382, -0.1939,  0.2378], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;リンゴ (アルバム) (album)&#39;, tensor([-0.7952,  0.3122, -0.1794,  0.5237,  ...,  -0.4918, -0.1221, -0.0287,  0.6898], device=&#39;cuda:0&#39;))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;リンゴ&quot;)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;リンゴ (word)&#39;, [&#39;サクランボ (word)&#39;, &#39;イチゴ (word)&#39;, &#39;スターキングデリシャス (word)&#39;, &#39;ジュース (word)&#39;, &#39;アスパラガス (word)&#39;]),</span>
+<span class="sd">            (&#39;リンゴ (fruit;fruit of Maloideae;pome)&#39;, [&#39;イチゴ (taxon)&#39;, &#39;モモ (taxon)&#39;, &#39;ブドウ (grape juice;berry)&#39;, &#39;ナシ (taxon)&#39;, &#39;サクランボ (drupe;fruit)&#39;]),</span>
+<span class="sd">            (&#39;リンゴ (アルバム) (album)&#39;, [&#39;グッドナイト・ウィーン (album;studio album)&#39;, &#39;想い出のフォトグラフ (Ringo;single;song)&#39;, &#39;明日への願い (single)&#39;, &quot;オール・シングス・マスト・パス (George Harrison&#39;s albums in chronological order;triple album;studio album)&quot;, &#39;バック・オフ・ブーガルー (Stop and Smell the Roses;single;song)&#39;])</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;リンゴ&quot;, top_n=3, group=True)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;リンゴ (word)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;word&#39;, [&#39;サクランボ&#39;, &#39;イチゴ&#39;, &#39;スターキングデリシャス&#39;])])),</span>
+<span class="sd">            (&#39;リンゴ (fruit;fruit of Maloideae;pome)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;taxon&#39;, [&#39;イチゴ&#39;, &#39;モモ&#39;]), (&#39;grape juice&#39;, [&#39;ブドウ&#39;]), (&#39;berry&#39;, [&#39;ブドウ&#39;])])),</span>
+<span class="sd">            (&#39;リンゴ (アルバム) (album)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;album&#39;, [&#39;グッドナイト・ウィーン&#39;]), (&#39;studio album&#39;, [&#39;グッドナイト・ウィーン&#39;]), (&#39;Ringo&#39;, [&#39;想い出のフォトグラフ&#39;]), (&#39;single&#39;, [&#39;想い出のフォトグラフ&#39;, &#39;明日への願い&#39;]), (&#39;song&#39;, [&#39;想い出のフォトグラフ&#39;])]))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec = Pororo(&quot;word2vec&quot;, lang=&quot;zh&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; word2vec(&quot;苹果&quot;)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;苹果 (word)&#39;, tensor([-0.1839,  0.5122, -0.1008,  0.0722, ..., 0.3404, -0.2146,  0.3418, -0.3336], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;苹果 (fruit;fruit of Maloideae;pome)&#39;, tensor([-0.5241,  0.2368, -1.1965, -0.5834,  ..., 0.3141, -0.7297,  0.5291, -0.2308], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;苹果 (电影) (film)&#39;, tensor([-0.7060,  0.0215,  0.6849,  0.4374, ..., -0.1802,  0.3402, -0.9224, -0.1029], device=&#39;cuda:0&#39;)),</span>
+<span class="sd">            (&#39;蘋果公司 (NASDAQ-100;giants of the web;business;enterprise;Dow Jones Industrial Average)&#39;, tensor([-0.8581,  0.2706,  0.0931,  0.1566,  ..., -0.3404, -0.6099,  0.3207, -1.0029], device=&#39;cuda:0&#39;))</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;苹果&quot;)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;苹果 (word)&#39;, [&#39;苹果公司 (word)&#39;, &#39;黑莓 (word)&#39;, &#39;苹果皮 (word)&#39;, &#39;树莓 (word)&#39;, &#39;ibookstore (word)&#39;]),</span>
+<span class="sd">            (&#39;苹果 (fruit;fruit of Maloideae;pome)&#39;, [&#39;杏仁 (apricot;stone;culinary nuts)&#39;, &#39;梨 (taxon)&#39;, &#39;無花果 (taxon)&#39;, &#39;葡萄 (grape juice;berry)&#39;, &#39;桃 (taxon)&#39;]),</span>
+<span class="sd">            (&#39;苹果 (电影) (film)&#39;, [&#39;盲山 (film)&#39;, &#39;我的父親母親 (misc)&#39;, &#39;闯关东 (电视剧) (television program)&#39;, &#39;摇摆de婚约 (misc)&#39;, &#39;北京遇上西雅圖 (misc)&#39;]),</span>
+<span class="sd">            (&#39;蘋果公司 (NASDAQ-100;giants of the web;business;enterprise;Dow Jones Industrial Average)&#39;, [&#39;苹果公司 (word)&#39;, &#39;IOS 9 (iOS;operating system;mobile operating system)&#39;, &#39;苹果公司 (misc)&#39;, &#39;MacBook Air (Ultrabook;computer model;MacBook;Apple Macintosh)&#39;, &#39;WWDC (misc)&#39;])</span>
+<span class="sd">        ])</span>
+<span class="sd">        &gt;&gt;&gt; word2vec.find_similar_words(&quot;苹果&quot;, top_n=3, group=True)</span>
+<span class="sd">        OrderedDict([</span>
+<span class="sd">            (&#39;苹果 (word)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;word&#39;, [&#39;苹果公司&#39;, &#39;黑莓&#39;, &#39;苹果皮&#39;])])),</span>
+<span class="sd">            (&#39;苹果 (fruit;fruit of Maloideae;pome)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;apricot&#39;, [&#39;杏仁&#39;]), (&#39;stone&#39;, [&#39;杏仁&#39;]), (&#39;culinary nuts&#39;, [&#39;杏仁&#39;]), (&#39;taxon&#39;, [&#39;梨&#39;, &#39;無花果&#39;])])),</span>
+<span class="sd">            (&#39;苹果 (电影) (film)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;film&#39;, [&#39;盲山&#39;]), (&#39;misc&#39;, [&#39;我的父親母親&#39;]), (&#39;television program&#39;, [&#39;闯关东 (电视剧)&#39;])])),</span>
+<span class="sd">            (&#39;蘋果公司 (NASDAQ-100;giants of the web;business;enterprise;Dow Jones Industrial Average)&#39;,</span>
+<span class="sd">                OrderedDict([(&#39;word&#39;, [&#39;苹果公司&#39;]), (&#39;iOS&#39;, [&#39;IOS 9&#39;]), (&#39;operating system&#39;, [&#39;IOS 9&#39;]), (&#39;mobile operating system&#39;, [&#39;IOS 9&#39;]), (&#39;misc&#39;, [&#39;苹果公司&#39;])]))</span>
+<span class="sd">        ])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PororoWordFactory.get_available_langs"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWordFactory.get_available_langs">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_available_langs</span><span class="p">():</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;ko&quot;</span><span class="p">,</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span> <span class="s2">&quot;zh&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="PororoWordFactory.get_available_models"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWordFactory.get_available_models">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_available_models</span><span class="p">():</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;wikipedia2vec.en&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;ko&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;wikipedia2vec.ko&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;ja&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;wikipedia2vec.ja&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;zh&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;wikipedia2vec.zh&quot;</span><span class="p">],</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="PororoWordFactory.load"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWordFactory.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load user-selected task-specific model</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            device (str): device information</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            object: User-selected task-specific model</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;wikipedia2vec&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">n_model</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">whoosh.index</span> <span class="k">as</span> <span class="nn">index</span>
+
+            <span class="kn">from</span> <span class="nn">pororo.models.wikipedia2vec</span> <span class="kn">import</span> <span class="n">Wikipedia2Vec</span>
+
+            <span class="n">vec_map</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;ko&quot;</span><span class="p">:</span> <span class="s2">&quot;kowiki_20200720_100d.pkl&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;enwiki_20180420_100d.pkl&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ja&quot;</span><span class="p">:</span> <span class="s2">&quot;jawiki_20180420_100d.pkl&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;zh&quot;</span><span class="p">:</span> <span class="s2">&quot;zhwiki_20180420_100d.pkl&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+
+            <span class="n">f_wikipedia2vec</span> <span class="o">=</span> <span class="n">download_or_load</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;misc/</span><span class="si">{</span><span class="n">vec_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">lang</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">lang</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">wikipedia2vec</span> <span class="o">=</span> <span class="n">Wikipedia2Vec</span><span class="p">(</span><span class="n">f_wikipedia2vec</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+            <span class="n">f_index</span> <span class="o">=</span> <span class="n">download_or_load</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;misc/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">lang</span><span class="si">}</span><span class="s2">_indexdir.zip&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">lang</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">index_dir</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">open_dir</span><span class="p">(</span><span class="n">f_index</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">PororoWikipedia2Vec</span><span class="p">(</span><span class="n">wikipedia2vec</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="PororoWikipedia2Vec"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWikipedia2Vec">[docs]</a><span class="k">class</span> <span class="nc">PororoWikipedia2Vec</span><span class="p">(</span><span class="n">PororoSimpleBase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span> <span class="o">=</span> <span class="n">index_dir</span>
+
+    <span class="k">def</span> <span class="nf">_normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        normalize input query</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query (str): input query</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: normalized input qeury</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">searchterm</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">searchterm</span> <span class="o">=</span> <span class="n">searchterm</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">searchterm</span>
+
+    <span class="k">def</span> <span class="nf">_get_word_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get word vector from word string</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            word (str): word string</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            OrderedDict: {word_string: word_vector}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">headword2vec</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">Word</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">Word</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_word_vector</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="n">headword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Word</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2"> (word)&quot;</span>
+            <span class="n">headword2vec</span><span class="p">[</span><span class="n">headword</span><span class="p">]</span> <span class="o">=</span> <span class="n">vec</span>
+
+        <span class="k">return</span> <span class="n">headword2vec</span>
+
+    <span class="k">def</span> <span class="nf">_get_entity_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get entity vector from entity string</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            entity (str): entity string</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            OrderedDict: {entity_string: entity_vector}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">headword2vec</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">searcher</span><span class="p">()</span> <span class="k">as</span> <span class="n">searcher</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">QueryParser</span><span class="p">(</span><span class="s2">&quot;searchterms&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+            <span class="n">hits</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;wiki_title&quot;</span> <span class="ow">in</span> <span class="n">hit</span><span class="p">:</span>
+                    <span class="n">wiki_title</span> <span class="o">=</span> <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;wiki_title&quot;</span><span class="p">]</span>
+                    <span class="n">category</span> <span class="o">=</span> <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;categories&quot;</span><span class="p">]</span>
+                    <span class="n">headword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">wiki_title</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">)&quot;</span>
+                    <span class="n">Entity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="n">wiki_title</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">Entity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_entity_vector</span><span class="p">(</span><span class="n">wiki_title</span><span class="p">)</span>
+                        <span class="n">headword2vec</span><span class="p">[</span><span class="n">headword</span><span class="p">]</span> <span class="o">=</span> <span class="n">vec</span>
+        <span class="k">return</span> <span class="n">headword2vec</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_append</span><span class="p">(</span><span class="n">headword</span><span class="p">,</span> <span class="n">relative</span><span class="p">,</span> <span class="n">headword2relatives</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        append relative to dictionary</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            headword: head word</span>
+<span class="sd">            relative: relative word or entity dictionary</span>
+<span class="sd">            headword2relatives: given result dictionary</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">headword</span> <span class="ow">in</span> <span class="n">headword2relatives</span><span class="p">:</span>
+            <span class="n">headword2relatives</span><span class="p">[</span><span class="n">headword</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relative</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">headword2relatives</span><span class="p">[</span><span class="n">headword</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">relative</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headword2relatives</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        postprocessing for better output format</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            headword2relatives (OrderedDict):</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            OrderedDict: postprocessed output</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_headword2relatives</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">headword</span><span class="p">,</span> <span class="n">relatives</span> <span class="ow">in</span> <span class="n">headword2relatives</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cat2words</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">relative</span> <span class="ow">in</span> <span class="n">relatives</span><span class="p">:</span>
+                <span class="n">word</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="n">relative</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot; (&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">category</span> <span class="o">=</span> <span class="n">category</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">categories</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">cat2words</span><span class="p">)</span>
+            <span class="n">new_headword2relatives</span><span class="p">[</span><span class="n">headword</span><span class="p">]</span> <span class="o">=</span> <span class="n">cat2words</span>
+
+        <span class="k">return</span> <span class="n">new_headword2relatives</span>
+
+<div class="viewcode-block" id="PororoWikipedia2Vec.find_similar_words"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWikipedia2Vec.find_similar_words">[docs]</a>    <span class="k">def</span> <span class="nf">find_similar_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        find similar words from input query</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query (str): input query</span>
+<span class="sd">            top_n (int): number of result</span>
+<span class="sd">            group (bool): return grouped dictionary or not</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            OrderedDict: word or entity search result</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">searchterm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="c1"># Final return</span>
+        <span class="n">headword2relatives</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">searcher</span><span class="p">()</span> <span class="k">as</span> <span class="n">searcher</span><span class="p">:</span>
+            <span class="c1"># Word</span>
+            <span class="n">Word</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_word</span><span class="p">(</span><span class="n">searchterm</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">Word</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="n">Word</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">headword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2"> (word)&quot;</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">Word</span><span class="p">,</span> <span class="n">top_n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># note that the first result is the word itself.</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>  <span class="c1"># returned by wikipedia2vec</span>
+                        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;text&quot;</span><span class="p">):</span>  <span class="c1"># word</span>
+                            <span class="n">relative</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+                            <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (word)&quot;</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                <span class="n">headword</span><span class="p">,</span>
+                                <span class="n">relative_</span><span class="p">,</span>
+                                <span class="n">headword2relatives</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>  <span class="c1"># entity</span>
+                            <span class="n">relative</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">title</span>
+                            <span class="n">idx</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                            <span class="n">from_idx</span> <span class="o">=</span> <span class="n">QueryParser</span><span class="p">(</span>
+                                <span class="s2">&quot;entity_idx&quot;</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span>
+                            <span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+                            <span class="n">hits</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">from_idx</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">category</span> <span class="o">=</span> <span class="n">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;categories&quot;</span><span class="p">]</span>
+                                <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">)&quot;</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                    <span class="n">headword</span><span class="p">,</span>
+                                    <span class="n">relative_</span><span class="p">,</span>
+                                    <span class="n">headword2relatives</span><span class="p">,</span>
+                                <span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (misc)&quot;</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                    <span class="n">headword</span><span class="p">,</span>
+                                    <span class="n">relative_</span><span class="p">,</span>
+                                    <span class="n">headword2relatives</span><span class="p">,</span>
+                                <span class="p">)</span>
+
+            <span class="c1"># Entity</span>
+            <span class="n">from_searchterms</span> <span class="o">=</span> <span class="n">QueryParser</span><span class="p">(</span>
+                <span class="s2">&quot;searchterms&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">searchterm</span><span class="p">)</span>
+            <span class="n">hits</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">from_searchterms</span><span class="p">)</span>
+
+            <span class="c1"># returned by indexer &lt;Hit {&#39;categories&#39;: &#39;human&#39;, &#39;display&#39;: &#39;Messi&#39;, &#39;wiki_title&#39;: &#39;Messi (2014 film)&#39;}&gt;</span>
+            <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">:</span>
+                <span class="n">wiki_title</span> <span class="o">=</span> <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;wiki_title&quot;</span><span class="p">]</span>
+                <span class="n">Entity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="n">wiki_title</span><span class="p">)</span>
+                <span class="n">entity</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="n">title</span>
+                <span class="n">category</span> <span class="o">=</span> <span class="n">hit</span><span class="p">[</span><span class="s2">&quot;categories&quot;</span><span class="p">]</span>
+                <span class="n">headword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+                <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="n">top_n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># note that the first result is the word itself.</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;text&quot;</span><span class="p">):</span>  <span class="c1"># word</span>
+                            <span class="n">relative</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+                            <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (word)&quot;</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                <span class="n">headword</span><span class="p">,</span>
+                                <span class="n">relative_</span><span class="p">,</span>
+                                <span class="n">headword2relatives</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>  <span class="c1"># entity</span>
+                            <span class="n">relative</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">title</span>
+                            <span class="n">idx</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                            <span class="n">from_idx</span> <span class="o">=</span> <span class="n">QueryParser</span><span class="p">(</span>
+                                <span class="s2">&quot;entity_idx&quot;</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_ix</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span>
+                            <span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+                            <span class="n">hits</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">from_idx</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">category</span> <span class="o">=</span> <span class="n">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;categories&quot;</span><span class="p">]</span>
+                                <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">)&quot;</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                    <span class="n">headword</span><span class="p">,</span>
+                                    <span class="n">relative_</span><span class="p">,</span>
+                                    <span class="n">headword2relatives</span><span class="p">,</span>
+                                <span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">relative_</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">relative</span><span class="si">}</span><span class="s2"> (misc)&quot;</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span>
+                                    <span class="n">headword</span><span class="p">,</span>
+                                    <span class="n">relative_</span><span class="p">,</span>
+                                    <span class="n">headword2relatives</span><span class="p">,</span>
+                                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_postprocess</span><span class="p">(</span>
+            <span class="n">headword2relatives</span><span class="p">)</span> <span class="k">if</span> <span class="n">group</span> <span class="k">else</span> <span class="n">headword2relatives</span></div>
+
+<div class="viewcode-block" id="PororoWikipedia2Vec.predict"><a class="viewcode-back" href="../../../miscs/w2v.html#pororo.tasks.word_embedding.PororoWikipedia2Vec.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        predict to find similar words or entities</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query (str): input qeury</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            OrderedDict: vector search result</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">searchterm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">word2vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_word_vector</span><span class="p">(</span><span class="n">searchterm</span><span class="p">)</span>
+        <span class="n">entity2vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_entity_vectors</span><span class="p">(</span><span class="n">searchterm</span><span class="p">)</span>
+        <span class="n">word2vec</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">entity2vec</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">word2vec</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Oops! </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2"> does NOT exist in our database.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">word2vec</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Kakao Brain Corp.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
