@@ -14,7 +14,8 @@ class CustomTokenizer(BaseTokenizer):
         merges: Union[str, None],
         unk_token: str = "<unk>",
         replacement: str = "▁",
-        add_prefix_space: bool = True,
+        # add_prefix_space: bool = True,  # for the tokenizers version not using add_prefix_space in pre_tokenizers.Metaspace
+        prepend_scheme: str = "always",
         dropout: Optional[float] = None,
         normalize: bool = True,
     ):
@@ -36,19 +37,22 @@ class CustomTokenizer(BaseTokenizer):
 
         tokenizer.pre_tokenizer = pre_tokenizers.Metaspace(
             replacement=replacement,
-            add_prefix_space=add_prefix_space,
+            # add_prefix_space=add_prefix_space,
+            prepend_scheme=prepend_scheme,
         )
 
         tokenizer.decoder = decoders.Metaspace(
             replacement=replacement,
-            add_prefix_space=add_prefix_space,
+            # add_prefix_space=add_prefix_space,
+            prepend_scheme=prepend_scheme,
         )
 
         parameters = {
             "model": f"SentencePiece{n_model}",
             "unk_token": unk_token,
             "replacement": replacement,
-            "add_prefix_space": add_prefix_space,
+            # "add_prefix_space": add_prefix_space,
+            "prepend_scheme": prepend_scheme,
             "dropout": dropout,
         }
         super().__init__(tokenizer, parameters)
